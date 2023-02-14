@@ -1,0 +1,8 @@
+=============== Mar 25, 2020 (ACDT) ===============
+11:58:28.580171 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:58:28.583171 db@open opening
+11:58:28.585171 version@stat F·[] S·0B[] Sc·[]
+11:58:28.587172 db@janitor F·2 G·0
+11:58:28.587172 db@open done T·3.0001ms
+11:58:28.608173 db@close closing
+11:58:28.608173 db@close done T·0s

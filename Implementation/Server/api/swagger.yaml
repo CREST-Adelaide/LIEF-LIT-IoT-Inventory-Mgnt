@@ -1,0 +1,202 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Inventory System"
+host: "localhost:8080"
+basePath: "/"
+paths:
+  /devices:
+    get:
+      tags:
+      - "Inventory"
+      summary: "List devices in inventory"
+      operationId: "listDevices"
+      parameters: []
+      responses:
+        "200":
+          description: "Inventory listed"
+          schema:
+            $ref: "#/definitions/inline_response_200"
+      x-swagger-router-controller: "Inventory"
+  /devices/add:
+    post:
+      tags:
+      - "Inventory"
+      summary: "Add device to inventory"
+      operationId: "addDevice"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Add device with given name, owner and location"
+        required: true
+        schema:
+          $ref: "#/definitions/body"
+      responses:
+        "200":
+          description: "Device added"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+      x-swagger-router-controller: "Inventory"
+  /devices/remove/{id}:
+    delete:
+      tags:
+      - "Inventory"
+      summary: "Remove device from inventory"
+      operationId: "removeDevice"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Remove device of given ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Device removed"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+      x-swagger-router-controller: "Inventory"
+  /devices/modify/{id}:
+    put:
+      tags:
+      - "Inventory"
+      summary: "Modify device information"
+      operationId: "modifyDevice"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Modify information of given ID"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "body"
+        description: "Modify device information with given name, owner and location"
+        required: true
+        schema:
+          $ref: "#/definitions/body_1"
+      responses:
+        "200":
+          description: "Device information modified"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+      x-swagger-router-controller: "Inventory"
+  /devices/lookup/{id}:
+    get:
+      tags:
+      - "Inventory"
+      summary: "Look up device information"
+      operationId: "lookUpDevices"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Look up information of given ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Device information looked up"
+          schema:
+            $ref: "#/definitions/inline_response_200_2"
+      x-swagger-router-controller: "Inventory"
+  /devices/checkout/{id}:
+    put:
+      tags:
+      - "Inventory"
+      summary: "Checkout device from inventory"
+      operationId: "checkoutDevice"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Checkout device of given ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Device checked out"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+      x-swagger-router-controller: "Inventory"
+  /devices/requestcheckin/{id}:
+    put:
+      tags:
+      - "Inventory"
+      summary: "Request device checkin"
+      operationId: "requestCheckin"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Request device checkin of given ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Requested device checkin"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+      x-swagger-router-controller: "Inventory"
+  /devices/checkin/{id}:
+    put:
+      tags:
+      - "Inventory"
+      summary: "Checkin device into inventory"
+      operationId: "checkinDevice"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Checkin device of given ID"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: "Device checked in"
+          schema:
+            $ref: "#/definitions/inline_response_200_1"
+      x-swagger-router-controller: "Inventory"
+definitions:
+  body_1:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      owner:
+        type: "string"
+      location:
+        type: "string"
+  inline_response_200_1:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+  inline_response_200:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      owner:
+        type: "string"
+      location:
+        type: "string"
+      state:
+        type: "string"
+  inline_response_200_2:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      owner:
+        type: "string"
+      location:
+        type: "string"
+      state:
+        type: "string"
+  body:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      owner:
+        type: "string"
+      location:
+        type: "string"

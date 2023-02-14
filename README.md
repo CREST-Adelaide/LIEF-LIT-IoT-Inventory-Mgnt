@@ -1,0 +1,3 @@
+# Where is our stuff? Inventory management with Blockchain
+
+We have been carrying more electronic devices with us as well as placing them in our environments. In the world of Internet of Things (IoT), knowing where our devices are, where they have been, and what their current status are have become challenges. This project explores the uses of blockchain technologies to build an inventory management system for IoT devices. It aims to provide a secure and resilient solution for monitoring and controlling large fleets of sensors in use cases such as ad-hoc portable IoT infrastructures in tactical domains. 
